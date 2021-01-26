@@ -1,0 +1,105 @@
+p {
+    margin-left: 4px;
+}
+
+#dropZone {
+    width: 95%; 
+    border: 1px dashed;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sortable { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+}
+#sortable li { 
+    float: left;
+    margin: 0 3px 3px 3px; 
+}
+
+#print-top {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    vertical-align: center;
+}
+
+#print-bottom {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    vertical-align: center;
+}
+
+.print-btn {
+   margin: 6px;
+}
+
+.print-img-top {
+    width: 25%;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.print-img-bottom {
+    width: 25%;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.preview {
+    overflow: auto;
+    min-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.preview-img {
+    max-height: 300px;
+    min-height: 100px;
+    height: auto;
+    width: auto;
+}
+
+.preview-img-container {
+    min-width: 22%;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.greyscale {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);   
+}
+
+.flip {
+    -webkit-transform: scaleX(-1) scaleY(-1);
+     transform: scaleX(-1) scaleY(-1);
+  }
+
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+@media print {
+    .title {
+        display: none;
+        visibility: hidden;
+    }
+
+    img {
+        object-fit: contain;
+    }
+}

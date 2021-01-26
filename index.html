@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="style.css">
+<div class='title'>
+    An Untitled Eight Page Zine Creator
+</div>
+
+<div id="setup">
+    <div id="dropZone">
+        <div>
+            <p>Instructions:</p>
+            <p>Drag images here to upload them.</p>
+            <p>You must have 8 images for this to work.</p>
+            <p>When you have the pages in the correct order, click print.  Pages 1 and 8 will be the covers.</p>
+            <p>Pages will be flipped as needed to create a foldable booklet.</p>
+        </div>
+        <button class="print-btn" onclick="print()">print!</button>
+    </div>
+    <p>Preview pages below.  Drag to reorder as desired.</p>
+    <ul id="sortable" class="preview"></ul>
+</div>
+
+<div id="print-top" class="hidden">
+</div>
+<div id="print-bottom" class="hidden">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
+} );
+</script>
+<script src="zine.js"></script>
