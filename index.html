@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="style.css">
-<div class='title'>
-    An Untitled Eight Page Zine Creator
+<div id='title'>
+    <h1>
+        Eight Page Instazine Machine
+    </h1>
+</div>
+
+<div id="print-instructions" class="hidden">
+    <p>If the images are in the order you would prefer below, please print through your browser settings.</p>
+    <p>You should not see the title or these instructions in the print preview.</p>
+    <P>For optimal printing quality, it is recommended that you disable headers and footers and adjust your margins as slim as possible.</P>
 </div>
 
 <div id="setup">
@@ -13,6 +21,7 @@
             <p>Pages will be flipped as needed to create a foldable booklet.</p>
         </div>
         <button class="print-btn" onclick="print()">print!</button>
+        <div id="error">&nbsp;</div>
     </div>
     <p>Preview pages below.  Drag to reorder as desired.</p>
     <ul id="sortable" class="preview"></ul>

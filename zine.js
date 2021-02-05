@@ -64,43 +64,49 @@ function flip(el) {
 }
 
 function print() {
-    document.getElementById("setup").className += " hidden";
-    document.getElementById("print-top").classList.remove("hidden");
-    document.getElementById("print-bottom").classList.remove("hidden");
+    var msg = document.getElementById("error");
     var items = document.getElementById("sortable");
-    var targetTop = document.getElementById("print-top");
-    var targetBottom = document.getElementById("print-bottom");
-    var reordered = [];
-
-    // hardcoding this for an 8 page document.  We'll need a better way later.
-    reordered[0] = items.children[6];
-    reordered[1] = items.children[5];
-    reordered[2] = items.children[4];
-    reordered[3] = items.children[3];
-    reordered[4] = items.children[7];
-    reordered[5] = items.children[0];
-    reordered[6] = items.children[1];
-    reordered[7] = items.children[2];
-
-    for (let i=0; i<reordered.length; i++) {
-        console.log(reordered[i]);
-        var el = document.createElement('img');
-        var previewImg = reordered[i].getElementsByClassName("preview-img")[0];
-        el.src = previewImg.src;
-        // this should probably be replaced by something else eventually
-        el.id = `print-${i}`;
-
-        // pages 4-7 should be flipped
-        if (i <= 3) {
-            el.className += " print-img-top";
-            el.className += " flip";
-            targetTop.appendChild(el);
-        }
-        else {
-            el.className += " print-img-bottom";
-            targetBottom.appendChild(el);
-        }
-
+    if (items.children.length != 8 ) {
+        var count = items.children.length !== undefined ? items.children.length : 0; 
+        msg.innerHTML = `Error: 8 images must be uploaded.  You have ${count} so far.`;
     }
-
+    else {
+        document.getElementById("setup").className += " hidden";
+        document.getElementById("print-instructions").classList.remove("hidden");
+        document.getElementById("print-top").classList.remove("hidden");
+        document.getElementById("print-bottom").classList.remove("hidden");
+        var targetTop = document.getElementById("print-top");
+        var targetBottom = document.getElementById("print-bottom");
+        var reordered = [];
+    
+        // hardcoding this for an 8 page document.  We'll need a better way later.
+        reordered[0] = items.children[6];
+        reordered[1] = items.children[5];
+        reordered[2] = items.children[4];
+        reordered[3] = items.children[3];
+        reordered[4] = items.children[7];
+        reordered[5] = items.children[0];
+        reordered[6] = items.children[1];
+        reordered[7] = items.children[2];
+    
+        for (let i=0; i<reordered.length; i++) {
+            console.log(reordered[i]);
+            var el = document.createElement('img');
+            var previewImg = reordered[i].getElementsByClassName("preview-img")[0];
+            el.src = previewImg.src;
+            // this should probably be replaced by something else eventually
+            el.id = `print-${i}`;
+    
+            // pages 4-7 should be flipped
+            if (i <= 3) {
+                el.className += " print-img-top";
+                el.className += " flip";
+                targetTop.appendChild(el);
+            }
+            else {
+                el.className += " print-img-bottom";
+                targetBottom.appendChild(el);
+            }
+        }
+    }
 }
